@@ -21,11 +21,6 @@
           <p class="field-hint" id="title-hint">Required. Max 120 characters.</p>
         </div>
         <div class="field-group">
-          <label for="model-name">Model</label>
-          <input type="text" id="model-name" name="model" placeholder="e.g. gpt-4o-mini" maxlength="100" required />
-          <p class="field-hint" id="model-hint">Required. Model identifier (max 100 chars).</p>
-        </div>
-        <div class="field-group">
           <label for="prompt-content">Content</label>
           <textarea id="prompt-content" name="content" placeholder="Enter the full prompt here..." rows="6" required></textarea>
           <p class="field-hint" id="content-hint">Required.</p>
@@ -53,8 +48,43 @@
     <article class="card" data-id="">
       <div class="card-main">
         <h3 class="card-title"></h3>
+        <div class="rating-container" data-prompt-id="">
+          <button class="star-btn" data-rating="1" aria-label="1 star">☆</button>
+          <button class="star-btn" data-rating="2" aria-label="2 stars">☆</button>
+          <button class="star-btn" data-rating="3" aria-label="3 stars">☆</button>
+          <button class="star-btn" data-rating="4" aria-label="4 stars">☆</button>
+          <button class="star-btn" data-rating="5" aria-label="5 stars">☆</button>
+        </div>
         <p class="card-preview"></p>
-        <div class="prompt-meta" data-role="metadata"></div>
+        
+        <!-- Notes Section -->
+        <div class="notes-section" data-prompt-id="">
+          <div class="notes-header">
+            <button class="notes-toggle-btn" type="button" aria-label="Toggle notes section">
+              <span class="notes-title">Notes</span>
+              <span class="notes-count">(0)</span>
+              <span class="toggle-icon">▼</span>
+            </button>
+            <button class="add-note-btn" type="button" aria-label="Add new note">+ Add Note</button>
+          </div>
+          
+          <div class="notes-content" style="display: none;">
+            <div class="notes-list"></div>
+            
+            <!-- Add Note Form -->
+            <div class="add-note-form" style="display: none;">
+              <textarea class="note-textarea" placeholder="Write your note here..." maxlength="500" rows="3"></textarea>
+              <div class="note-form-footer">
+                <div class="char-counter">0/500</div>
+                <div class="note-form-actions">
+                  <button class="save-note-btn" type="button">Save</button>
+                  <button class="cancel-note-btn" type="button">Cancel</button>
+                </div>
+              </div>
+              <div class="note-error" style="display: none;"></div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="card-actions">
         <button class="delete-btn" type="button" aria-label="Delete prompt">Delete</button>
